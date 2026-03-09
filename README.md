@@ -76,5 +76,5 @@ http://localhost:8000/api/docs/
 `docker compose up --build`
 
 После запуска API будет доступен:
-'http://localhost:8000'
+http://localhost:8000
 
