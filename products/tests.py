@@ -22,8 +22,8 @@ class ProductTest(APITestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]["name"], "Laptop")
+        self.assertEqual(len(response.data["results"]), 1)
+        self.assertEqual(response.data["results"][0]["name"], "Laptop")
 
     def test_get_single_product(self):
         url = reverse("product-detail", args=[self.product.id])

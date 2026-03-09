@@ -35,20 +35,7 @@ class CreateOrderTest(APITestCase):
             quantity=1
         )
 
-    def test_create_order(self):
-        url = reverse("order-list")
-
-        response = self.client.post(url)
-
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-        self.assertEqual(Order.objects.count(), 1)
-
-        order = Order.objects.first()
-
-        self.assertEqual(order.total_price, Decimal("500.00"))
-
-    def test_create_order(self):
+    def test_create_order_success(self):
         url = reverse("order-list")
 
         response = self.client.post(url)
