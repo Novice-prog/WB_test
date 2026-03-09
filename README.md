@@ -78,3 +78,39 @@ http://localhost:8000/api/docs/
 После запуска API будет доступен:
 http://localhost:8000
 
+---
+
+# 🧪 Tests
+
+Тесты запускаются автоматически при сборке и запуске Docker контейнера.
+Если хотя бы один тест падает, контейнер не запускается.
+
+Также тесты можно запустить вручную:
+`docker compose exec backend python manage.py test`
+
+---
+
+# 🔐 Authentication (JWT)
+
+Проект использует JWT авторизацию.
+
+Получить токен можно через:
+`POST /api/token/`
+
+Body:
+
+`{
+  "username": "your_username",
+  "password": "your_password"
+}`
+
+Ответ:
+
+`{
+  "access": "<access_token>",
+  "refresh": "<refresh_token>"
+}`
+
+### Для доступа к защищённым endpoints нужно добавить header:
+
+`Authorization: Bearer <access_token>`
